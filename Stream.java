@@ -1,15 +1,38 @@
+package test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println(returnChangeAscii());
+		returnChangelower(returnChangeAscii());
 		printMemberCountGroupByHobby();
 		printLikeCount();
+	}
+	public static Stream<String> returnChangelower(String s) {
+		String result1 ="";
+		Stream<String> stream = Arrays.asList(s).stream();
+		Stream<String> result = stream.map(name -> {
+			return name.toLowerCase();
+		});
+		System.out.println(result.collect(Collectors.toList()).get(0));
+		return result;
+	}
+	public static String returnChangeAscii() {
+		String result ="";
+		for(int i = 65; i < 91; i++) {
+			result += (char)i;
+		}
+		
+		return result;
 	}
 	
 	public static void printMemberCountGroupByHobby() { 
