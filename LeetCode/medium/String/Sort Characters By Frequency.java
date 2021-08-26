@@ -1,7 +1,7 @@
 class Solution {
     public String frequencySort(String s) {
         HashMap<Character, Integer> map = new HashMap<>();        
-        String result = "";
+        StringBuilder result = new StringBuilder();
         
         for(int i = 0; i < s.length(); i++){
             map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0)+1);
@@ -13,9 +13,9 @@ class Solution {
         
         for(Character a: keyList){
             String str = Character.toString(a);
-            result += str.repeat(map.get(a));
+            result.append(str.repeat(map.get(a)));
         }
         
-        return result;
+        return result.toString();
     }
 }
